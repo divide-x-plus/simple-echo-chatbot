@@ -3,8 +3,6 @@ const bodyParser = require('body-parser');
 let { handleMessage, handlePostback } = require('./helpers.js');
 
 const app = express().use(bodyParser.json());
-// const PAGE_ACCESS_TOKEN = process.env.PAGE_ACCESS_TOKEN;
-// let PAGE_ACCESS_TOKEN = 'EAAboY0kSHKkBAKaMa0eSmCrSKymFEuZAA4rAMVbXCbJJLZAEd2BQM319ZCh2t1KOZC0f1ZCRBMMK1d8m41MEkdDfbYJX5CIsdqS4II3Bq6hdNZCc4aZBQLfFMj74reHLDtx6ZA3zUJQH8hZC8T7YhF5wNyewLiTGlZBufCDKlblgtiUAZDZD';s
 
 
 // Sets server port and logs message on success

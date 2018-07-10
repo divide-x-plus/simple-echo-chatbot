@@ -1,6 +1,5 @@
 let request = require('request');
 
-// let PAGE_ACCESS_TOKEN = 'EAAboY0kSHKkBAKaMa0eSmCrSKymFEuZAA4rAMVbXCbJJLZAEd2BQM319ZCh2t1KOZC0f1ZCRBMMK1d8m41MEkdDfbYJX5CIsdqS4II3Bq6hdNZCc4aZBQLfFMj74reHLDtx6ZA3zUJQH8hZC8T7YhF5wNyewLiTGlZBufCDKlblgtiUAZDZD';
 const PAGE_ACCESS_TOKEN = process.env.PAGE_ACCESS_TOKEN;
 
 // Handles messages events
@@ -17,7 +16,31 @@ var handleMessage = (sender_psid, received_message) => {
   
     // Gets the URL of the message attachment
     let attachment_url = received_message.attachments[0].payload.url;
-  
+    response = {
+      "attachment": {
+        "type": "template",
+        "payload": {
+          "template_type": "generic",
+          "elements": [{
+            "title": "Is this the right picture?",
+            "subtitle": "Tap a button to answer.",
+            "image_url": attachment_url,
+            "buttons": [
+              {
+                "type": "postback",
+                "title": "Yes!",
+                "payload": "yes",
+              },
+              {
+                "type": "postback",
+                "title": "No!",
+                "payload": "no",
+              }
+            ],
+          }]
+        }
+      }
+    }
   } 
   
   // Sends the response message
